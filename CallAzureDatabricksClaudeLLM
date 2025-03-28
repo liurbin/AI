@@ -1,0 +1,27 @@
+import os
+import openai
+from openai import OpenAI
+
+client = OpenAI(
+    # create access token:  databricks UI -> user -> Setting -> Developer -> Access Tokens
+    api_key="12345678900987654321",
+    # check LLM endpoint URL :  databricks UI -> Serving -> Claude Model -> URL
+    base_url="https://adb-12345678900987654321.azuredatabricks.net/serving-endpoints"
+)
+
+response = client.chat.completions.create(
+    model="databricks-claude-3-7-sonnet",
+    messages=[
+      {
+        "role": "system",
+        "content": "You are a helpful assistant."
+      },
+      {
+        "role": "user",
+        "content": "What is databricks?",
+      }
+    ],
+    max_tokens=256
+)
+
+print(response.choices[0].message)
