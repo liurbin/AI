@@ -7,7 +7,7 @@
 #    - DEEP_RESEARCH_MODEL_DEPLOYMENT_NAME: The deployment name of your o3-deep-research model
 #    - MODEL_DEPLOYMENT_NAME: The deployment name of your 4o model
 # 5. Run pip install --pre azure-ai-projects, must be pre-release version
-# 
+# 6. Run pip install azure-ai-projects azure-identity azure-ai-agents
 
 import os, time
 from typing import Optional
@@ -144,3 +144,4 @@ with project_client:
         # NOTE: Comment out this line if you plan to reuse the agent later.
         # agents_client.delete_agent(agent.id)
         # print("Deleted agent")
+
